@@ -37,6 +37,9 @@
 		if(uplink_handler.progression_points < SStraitor.current_global_progression)
 			uplink_handler.progression_points = SStraitor.current_global_progression * SStraitor.newjoin_progression_coeff
 
+	uplink.uplink_flag = UPLINK_TRAITORS
+	uplink_handler.uplink_flag = UPLINK_TRAITORS
+	
 	var/list/uplink_items = list()
 	for(var/datum/uplink_item/item as anything in SStraitor.uplink_items)
 		if(item.item && !item.cant_discount && (item.purchasable_from & uplink_handler.uplink_flag) && item.cost > 1)
