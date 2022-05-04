@@ -27,15 +27,15 @@
 	else
 		uplink_handler = uplink.uplink_handler
 
-	if(!linked_advanced_datum)
-		uplink_handler.has_progression = TRUE
-		SStraitor.register_uplink_handler(uplink_handler)
-
+	if(!linked_advanced_datum)	
 		uplink_handler.has_objectives = TRUE
 		uplink_handler.generate_objectives()
+		
+	uplink_handler.has_progression = TRUE
+	SStraitor.register_uplink_handler(uplink_handler)
 
-		if(uplink_handler.progression_points < SStraitor.current_global_progression)
-			uplink_handler.progression_points = SStraitor.current_global_progression * SStraitor.newjoin_progression_coeff
+	if(uplink_handler.progression_points < SStraitor.current_global_progression)
+		uplink_handler.progression_points = SStraitor.current_global_progression * SStraitor.newjoin_progression_coeff
 
 	uplink.uplink_flag = UPLINK_TRAITORS
 	uplink_handler.uplink_flag = UPLINK_TRAITORS
