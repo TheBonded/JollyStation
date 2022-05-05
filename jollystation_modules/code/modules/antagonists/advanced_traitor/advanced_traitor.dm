@@ -26,16 +26,14 @@
 		uplink.uplink_handler = uplink_handler
 	else
 		uplink_handler = uplink.uplink_handler
+	uplink_handler.has_progression = TRUE
+	SStraitor.register_uplink_handler(uplink_handler)
 
-	if(!linked_advanced_datum)
-		uplink_handler.has_progression = TRUE
-		SStraitor.register_uplink_handler(uplink_handler)
+	uplink_handler.has_objectives = TRUE
+	uplink_handler.generate_objectives()
 
-		uplink_handler.has_objectives = TRUE
-		uplink_handler.generate_objectives()
-
-		if(uplink_handler.progression_points < SStraitor.current_global_progression)
-			uplink_handler.progression_points = SStraitor.current_global_progression * SStraitor.newjoin_progression_coeff
+	if(uplink_handler.progression_points < SStraitor.current_global_progression)
+		uplink_handler.progression_points = SStraitor.current_global_progression * SStraitor.newjoin_progression_coeff
 
 	var/list/uplink_items = list()
 	for(var/datum/uplink_item/item as anything in SStraitor.uplink_items)
@@ -59,6 +57,7 @@
 	should_give_codewords = FALSE
 	give_uplink = FALSE
 	finalize_antag = FALSE
+	var/uplink_sale_count = 3
 	/// List of objectives traitors can get in addition to the base ones
 	var/static/list/traitor_objectives = list(
 		"exile" = /datum/objective/exile,
