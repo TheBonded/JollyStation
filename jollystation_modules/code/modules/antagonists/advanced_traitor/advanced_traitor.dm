@@ -57,7 +57,7 @@
 	employer = "The Syndicate" // Can be changed by the player.
 	give_objectives = FALSE
 	should_give_codewords = FALSE
-	give_uplink = FALSE
+	give_uplink = TRUE
 	finalize_antag = FALSE
 	/// List of objectives traitors can get in addition to the base ones
 	var/static/list/traitor_objectives = list(
